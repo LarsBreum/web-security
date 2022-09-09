@@ -10,15 +10,31 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <?php $message = "Hello World";
-            echo "<h1>" . $message . "</h1>";
+        <div class="main-container">
+            <?php
+                include 'header.php'
+            ?>
+            <?php $message = "Hello World";
+                echo "<h1>" . $message . "</h1>";
+            ?>
+
+
+
+        <?php
+            include "footer.php";
         ?>
+
+        </div>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+        
         
         <script src="js/main.js" async defer></script>
     </body>
