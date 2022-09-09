@@ -21,9 +21,33 @@ nav {
   text-align: center;
 }
 footer {
-  horizontal-align: bottom;
+}
+footer p {
+  text-align: center;
+}
+
+.content {
+  padding-left: 5%;
+  padding: right: 5%;
+}
+
+.page-header {
+  text-align: center;
 }
 
 .main-container {
   padding: 10px;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.flex-item {
+  align: center;
+  max-width: 360px;
 }

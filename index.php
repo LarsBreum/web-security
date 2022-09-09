@@ -19,11 +19,10 @@
             <?php
                 include 'header.php'
             ?>
-            <?php $message = "Hello World";
-                echo "<h1>" . $message . "</h1>";
+            
+            <?php
+                include './pages/home.php'
             ?>
-
-
 
         <?php
             include "footer.php";
