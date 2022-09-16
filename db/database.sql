@@ -1,3 +1,9 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS purchases;
+DROP TABLE IF EXISTS product_instances;
+
+
 CREATE TABLE users (
 	user_username TEXT UNIQUE,
     user_password TEXT,
@@ -6,7 +12,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE products (
-    product_id int NOT NULL AUTO_INCREMENT,
+    product_id TEXT DEFAULT (lower(hex(randomblob(16)))),
     product_name TEXT,
     product_desc TEXT,
     product_price DOUBLE,
@@ -22,5 +28,10 @@ CREATE TABLE purchases (
 
 CREATE TABLE product_instances(
 	product_quantity INT,
-    FOREIGN KEY (purchase_time, product_id)
+
+    purchase_time TIMESTAMP,
+    product_id TEXT,
+
+    FOREIGN KEY (purchase_time) REFERENCES purchases(purchase_time),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
