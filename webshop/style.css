@@ -1,0 +1,243 @@
+/* CSS defualt setting */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lato:wght@100;300;400;700;900&family=Lora:ital,wght@1,400;1,500;1,600;1,700&display=swap');
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  line-height: 1.5;
+  margin: 0 auto;
+  font-family: 'Josefin', sans-serif;
+}
+
+h2,
+h1,
+h3,
+h4,
+h5 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+}
+a {
+  text-decoration: none;
+  font-family: 'Josefin', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+.flexRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #30ada9;
+  width: 100%;
+  height: 50px;
+}
+.headerContainer,
+.footerContainer {
+  max-width: 960px;
+}
+/* NAVIGATION */
+header a {
+  color: whitesmoke;
+}
+header a:hover {
+  color: rgba(238, 255, 0, 0.573);
+}
+
+.navLeft {
+  flex: 1;
+  width: 100%;
+
+  padding: 0;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.navCenter {
+  flex: 4;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+
+  height: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+}
+ul {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+.navRight {
+  flex: 2;
+  width: 100%;
+
+  justify-content: space-between;
+  align-items: center;
+
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+}
+/* AMAIN */
+main {
+  width: 100%;
+  display: flex;
+
+  flex-direction: column;
+}
+/* BANNER */
+.banner {
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  position: relative;
+  height: 500px;
+}
+
+.bannerImg {
+  object-fit: cover;
+}
+.bannerTitle {
+  padding: 0.5px 3px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 20%;
+  right: 20%;
+  top: 10%;
+  background: rgba(255, 255, 255, 0.313);
+  border-radius: 1rem;
+}
+h1 {
+  font-size: 5rem;
+}
+.btn {
+  margin: 2rem;
+  padding: 10px 5px;
+  background: rgb(36, 36, 36);
+  border-radius: 3rem;
+  color: azure;
+  text-align: center;
+}
+.btn:hover {
+  background: #000;
+}
+
+/* PRODUCTS */
+.products {
+  width: 960px;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+}
+
+h2 {
+  font-size: 4rem;
+  padding: 2rem;
+}
+.productsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+/* PRODUCTS */
+.product {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 0, 0.424);
+  border-radius: 2rem;
+  width: 20%;
+}
+.imageHolder {
+  flex: 1;
+}
+.imageHolder img {
+  width: 100%;
+  height: 10rem;
+  object-fit: center;
+}
+
+/* FOOTER */
+footer {
+  color: whitesmoke;
+  background: #30ada9;
+  width: 100%;
+  height: 5rem;
+}
+.footerContainer {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* SIGN UP */
+.signUp {
+  display: flex;
+  flex-direction: column;
+ 
+}
+.signUpContainer {
+  display: flex;
+
+  padding: 2rem;
+  flex-direction: column;
+}
+/* FORM */
+form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+input[type='text'],
+input[type='password'] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+label {
+  width: 100%;
+  text-align: left;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  font-size: larger;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  background: #000;
+}
