@@ -15,14 +15,15 @@ if($numRows > 0) {
     exit;
 }
 
-$db->prepare("INSERT INTO users VALUES (':username',':address',':password'");
-$db->bindValue(':name', $username);
-$db->bindValue(':address', $address);
-$db->bindValue(':password', $password);
+$stmt = $db->prepare("INSERT INTO users (user_username, user_address, user_password) VALUES (':username',':address',':password')");
+$stmt->bindValue(':name', $username, SQLITE3_TEXT);
+$stmt->bindValue(':address', $address, SQLITE3_TEXT);
+$stmt->bindValue(':password', $password, SQLITE3_TEXT);
 
-$db->execute();
+$stmt->execute();
 
-$allUsers = $db.query("SELECT * FROM users");
-var_dump($allUsers);
+$newUser = $db->query("SELECT '$username' FROM users")->fetchArray();
+
+echo $newUser[0];
 
 ?>
