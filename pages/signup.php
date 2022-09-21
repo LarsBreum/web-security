@@ -2,7 +2,7 @@
  <main>
       <!-- BANNER -->
       <section class="signUp">
-        <h1>Login</h1>
+        <h1>SignUp</h1>
         <div class="signUpContainer">
           <form action="METHOD/PHP?" method="post">
             <label for="name">Username</label>
@@ -25,4 +25,3 @@
         </div>
       </section>
     </main>
-    
