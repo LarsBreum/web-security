@@ -8,7 +8,7 @@
     $result = $db->query('SELECT * FROM users');
     var_dump($result->fetchArray()); */
 
-
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -46,9 +46,16 @@
         </nav>
         <div class="flexRow navRight">
           <a href="signUp.php">Sign up</a>
-          <a href="#">User Name</a>
-          <p>|</p>
-          <a href="login.php">Login</a>
+          <?php 
+            if ($_SESSION['user_logged_in']){
+              echo '<a href="#">' . $_SESSION['username'] . '</a>
+                    <p>|</p>
+                    <a href="logout.php">Log out</a>';
+            }
+            else {
+              echo '<a href="login.php">Log in</a>';
+            }
+          ?>
           <a href="cart.php">Cart</a>
         </div>
       </div>
