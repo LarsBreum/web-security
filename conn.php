@@ -5,6 +5,7 @@ class mySqlite extends SQLite3{
     }
 }
 $db = new mySqlite();
+$stmt = $db->exec("DELETE FROM `users`");
 $stmt = $db->exec("INSERT INTO `users` (`user_username`, `user_password`, `user_address`) VALUES 
     ('admin', 'pass', 'Address 1')");
 ?>
