@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lato:wght@100;300;400;700;900&family=Lora:ital,wght@1,400;1,500;1,600;1,700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -13,13 +14,19 @@
   font-family: 'Josefin', sans-serif;
 }
 
+.spaceBetween {
+  justify-content: space-between;
+  width: 100%;
+}
+
 h2,
 h1,
-h3,
+s h3,
 h4,
 h5 {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
 }
+
 a {
   text-decoration: none;
   font-family: 'Josefin', sans-serif;
@@ -48,14 +55,17 @@ button {
   width: 100%;
   height: 50px;
 }
+
 .headerContainer,
 .footerContainer {
   max-width: 960px;
 }
+
 /* NAVIGATION */
 header a {
   color: whitesmoke;
 }
+
 header a:hover {
   color: rgba(238, 255, 0, 0.573);
 }
@@ -70,6 +80,7 @@ header a:hover {
   align-items: center;
   text-align: center;
 }
+
 .navCenter {
   flex: 4;
   width: 90%;
@@ -81,11 +92,13 @@ header a:hover {
   padding: 0;
   margin: 0 auto;
 }
+
 ul {
   width: 90%;
   display: flex;
   align-items: center;
 }
+
 .navRight {
   flex: 2;
   width: 100%;
@@ -97,6 +110,7 @@ ul {
   padding: 0;
   margin: 0 auto;
 }
+
 /* AMAIN */
 main {
   width: 100%;
@@ -104,6 +118,7 @@ main {
 
   flex-direction: column;
 }
+
 /* BANNER */
 .banner {
   width: 100%;
@@ -116,6 +131,7 @@ main {
 .bannerImg {
   object-fit: cover;
 }
+
 .bannerTitle {
   padding: 0.5px 3px;
   position: absolute;
@@ -128,9 +144,11 @@ main {
   background: rgba(255, 255, 255, 0.313);
   border-radius: 1rem;
 }
+
 h1 {
   font-size: 5rem;
 }
+
 .btn {
   margin: 2rem;
   padding: 10px 5px;
@@ -139,6 +157,7 @@ h1 {
   color: azure;
   text-align: center;
 }
+
 .btn:hover {
   background: #000;
 }
@@ -155,6 +174,7 @@ h2 {
   font-size: 4rem;
   padding: 2rem;
 }
+
 .productsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -162,6 +182,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
 }
+
 /* PRODUCTS */
 .product {
   display: flex;
@@ -170,9 +191,11 @@ h2 {
   border-radius: 2rem;
   width: 20%;
 }
+
 .imageHolder {
   flex: 1;
 }
+
 .imageHolder img {
   width: 100%;
   height: 10rem;
@@ -186,23 +209,28 @@ footer {
   width: 100%;
   height: 5rem;
 }
+
 .footerContainer {
   padding: 2rem;
   text-align: center;
 }
 
 /* SIGN UP */
-.signUp {
+.container {
+  width: 100%;
   display: flex;
   flex-direction: column;
- 
+
+
 }
+
 .signUpContainer {
   display: flex;
 
   padding: 2rem;
   flex-direction: column;
 }
+
 /* FORM */
 form {
   width: 500px;
@@ -210,6 +238,7 @@ form {
   flex-direction: column;
   text-align: left;
 }
+
 input[type='text'],
 input[type='password'] {
   width: 100%;
@@ -219,6 +248,7 @@ input[type='password'] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+
 label {
   width: 100%;
   text-align: left;
@@ -240,4 +270,45 @@ button {
 /* Add a hover effect for buttons */
 button:hover {
   background: #000;
+}
+
+.receiptContainer {
+  width: 960px;
+  margin: 0 auto;
+  display: flex;
+}
+
+/* TABLE */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background: #000;
+
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.totalPrice {
+  width: 100%;
+  display: flex;
+  
+
+}
+
+.totalPrice {
+  margin: 2rem 0 0;
+  width: 100%;
+  text-align: left;
+
+
 }
