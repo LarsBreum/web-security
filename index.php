@@ -1,13 +1,7 @@
 
-            <?php
-                include 'header.php'
-            ?>
-            
-            <?php
-                include 'home.php'
-            ?>
-
-        <?php
-            include "footer.php";
-        ?>
-
+<?php
+    session_start();
+    include 'header.php';
+    include 'home.php';
+    include "footer.php";
+?>
