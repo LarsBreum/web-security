@@ -8,19 +8,19 @@
       <section class="signUp">
         <h1>SignUp</h1>
         <div class="signUpContainer">
-          <form action="METHOD/PHP?" method="post">
-            <label for="name">Username</label>
+          <form action="register.php" method="post">
+            <label for="username">Username</label>
             <input
               type="text"
-              name="name"
-              id="name"
+              name="username"
+              id="username"
               placeholder="Username..."
             />
             <input
               type="text"
               name="address"
               id="address"
-              placeholder="Username..."
+              placeholder="address..."
             />
             <label for="password">Password</label>
             <input
@@ -31,7 +31,7 @@
             />
             
 
-            <button type="submit" class="signup">Login</button>
+            <button type="submit" class="signup">Signup</button>
           </form>
         </div>
       </section>
