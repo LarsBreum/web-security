@@ -1,7 +1,6 @@
 <?php
 
-
-$db = new SQLite3('db/secureDB.sqlite');
+require_once'conn.php';
 
 $username = $_POST['username'];
 $address = $_POST['address'];
@@ -16,5 +15,14 @@ if($numRows > 0) {
     exit;
 }
 
+$db->prepare("INSERT INTO users VALUES (':username',':address',':password'");
+$db->bindValue(':name', $username);
+$db->bindValue(':address', $address);
+$db->bindValue(':password', $password);
+
+$db->execute();
+
+$allUsers = $db.query("SELECT * FROM users");
+var_dump($allUsers);
 
 ?>
