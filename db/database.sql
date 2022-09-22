@@ -35,3 +35,10 @@ CREATE TABLE product_instances(
     FOREIGN KEY (purchase_time) REFERENCES purchases(purchase_time),
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
+
+INSERT INTO users (user_username, user_password, user_address)
+    VALUES ('admin', 'pass', 'address 1');
+INSERT INTO users (user_username, user_password, user_address)
+    VALUES ('Lars', 'pass', 'address 2');
+INSERT INTO users (user_username, user_password, user_address)
+    VALUES ('Rasmus', 'pass', 'address 3');

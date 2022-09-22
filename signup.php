@@ -16,6 +16,14 @@
               id="username"
               placeholder="Username..."
             />
+            <span>
+            <?php
+                if (isset($_SESSION['message'])){
+                  echo $_SESSION['message'];
+                }
+                unset($_SESSION['message']);
+                ?>
+          </span>
             <input
               type="text"
               name="address"

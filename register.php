@@ -11,7 +11,7 @@ $row = $result->fetchArray();
 $numRows = $row['count'];
 
 if($numRows > 0) {
-    echo "username exists";
+    $_SESSION['message'] = "Username exists";
     exit;
 }
 
@@ -22,8 +22,6 @@ $stmt->bindValue(':password', $password, SQLITE3_TEXT);
 
 $stmt->execute();
 
-$newUser = $db->query("SELECT '$username' FROM users")->fetchArray();
 
-echo $newUser[0];
 
 ?>
