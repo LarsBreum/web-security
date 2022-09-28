@@ -44,8 +44,8 @@ INSERT INTO users (user_username, user_password, user_address)
     VALUES ('Rasmus', 'pass', 'address 3');
 
 INSERT INTO products (product_name, product_desc, product_price, product_img)
-    VALUES ('Product 1', 'A very good product', 10000, "#");
+    VALUES ('Product 1', 'A very good product', 10000, "img/cat0.jpg");
 INSERT INTO products (product_name, product_desc, product_price, product_img)
-    VALUES ('Product 2', 'An even better product', 15000, "#");
+    VALUES ('Product 2', 'An even better product', 15000, "img/cat1.jpg");
 INSERT INTO products (product_name, product_desc, product_price, product_img)
-    VALUES ('Product 3', 'The best product', 20000, "#");
+    VALUES ('Product 3', 'The best product', 20000, "img/cat2.jpg");
