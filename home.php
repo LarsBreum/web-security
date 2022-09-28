@@ -1,3 +1,13 @@
+
+
+<?php
+  require_once'conn.php';
+  
+  $products = $db->query("SELECT * FROM products");
+
+?>
+
+
 <!-- MAIN -->
 <main>
   <!-- BANNER -->
@@ -16,73 +26,42 @@
   <section class="products">
     <h2>Products</h2>
     <div class="productsContainer">
-      <!-- A PRODUCT -->
-      <article class="product">
-        <div class="imageHolder">
-          <img src="./img/cat0.jpg" alt="angry cat" />
-        </div>
 
-        <h3>Product Name</h3>
-        <span>Price $</span>
-        <a>Product info.... (Link to product page)</a>
-        <!-- BUTTON -->
-        <a onclick="Method which sets product into cart" class="btn shop" href="product.html">Shop</a>
-      </article>
-      <article class="product">
-        <div class="imageHolder">
-          <img src="./img/cat0.jpg" alt="angry cat" />
-        </div>
+    <?php
+    //försökar att loopa genom alla products i databasen och skriva ut dem
 
-        <h3>Product Name</h3>
-        <span>Price $</span>
-        <a>Product info.... (Link to product page)</a>
-        <!-- BUTTON -->
-        <a onclick="Method which sets product into cart" class="btn shop" href="product.html">Shop</a>
-      </article>
-      <article class="product">
-        <div class="imageHolder">
-          <img src="./img/cat0.jpg" alt="angry cat" />
-        </div>
+      if(!isset($products)) { //guard clause
+        echo "No products for sale!";
+        exit();
+      }
 
-        <h3>Product Name</h3>
-        <span>Price $</span>
-        <a>Product info.... (Link to product page)</a>
-        <!-- BUTTON -->
-        <a onclick="Method which sets product into cart" class="btn shop" href="product.html">Shop</a>
-      </article>
-      <article class="product">
-        <div class="imageHolder">
-          <img src="./img/cat0.jpg" alt="angry cat" />
-        </div>
+       while ($product = $products->fetchArray()) {
+        //echo "Product: {$product['product_name']}";
 
-        <h3>Product Name</h3>
-        <span>Price $</span>
-        <a>Product info.... (Link to product page)</a>
-        <!-- BUTTON -->
-        <a onclick="Method which sets product into cart" class="btn shop" href="product.html">Shop</a>
-      </article>
-      <article class="product">
-        <div class="imageHolder">
-          <img src="./img/cat0.jpg" alt="angry cat" />
-        </div>
+        $product_img = $product['product_img'];
+        $product_name = $product['product_name'];
+        $product_price = $product['product_price'];
+        $product_desc = $product['product_desc'];
+        
+        //var_dump($product_img);
 
-        <h3>Product Name</h3>
-        <span>Price $</span>
-        <a>Product info.... (Link to product page)</a>
-        <!-- BUTTON -->
-        <a onclick="Method which sets product into cart" class="btn shop" href="product.html">Shop</a>
-      </article>
-      <article class="product">
-        <div class="imageHolder">
-          <img src="./img/cat0.jpg" alt="angry cat" />
-        </div>
+        $output = '<article class="product">
+          <div class="imageHolder">
+            <img src="' . $product_img . '" alt="angry cat" />
+          </div>
+          <h3>' . $product_name . '</h3>
+          <span>' . $product_price . "$" . '</span>
+          <a>' . $product_desc . '</a>
+          <!-- BUTTON -->
+          <a onclick="Method which sets product into cart" class="btn shop" href="product.html">Shop</a>
+          </article>';
+        //$out = "string" . $product;
 
-        <h3>Product Name</h3>
-        <span>Price $</span>
-        <a>Product info.... (Link to product page)</a>
-        <!-- BUTTON -->
-        <a onclick="Method which sets product into cart" class="btn shop" href="product.html">Shop</a>
-      </article>
+        echo $output;
+       }
+    ?>
+ 
+       
     </div>
   </section>
 </main>

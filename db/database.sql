@@ -42,3 +42,10 @@ INSERT INTO users (user_username, user_password, user_address)
     VALUES ('Lars', 'pass', 'address 2');
 INSERT INTO users (user_username, user_password, user_address)
     VALUES ('Rasmus', 'pass', 'address 3');
+
+INSERT INTO products (product_name, product_desc, product_price, product_img)
+    VALUES ('Product 1', 'A very good product', 10000, "#");
+INSERT INTO products (product_name, product_desc, product_price, product_img)
+    VALUES ('Product 2', 'An even better product', 15000, "#");
+INSERT INTO products (product_name, product_desc, product_price, product_img)
+    VALUES ('Product 3', 'The best product', 20000, "#");
