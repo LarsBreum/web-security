@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!-- MAIN -->
 <main>
   <!-- BANNER -->
@@ -16,23 +20,27 @@
   <section class="products">
     <h2>Products</h2>
     <div class="productsContainer">
+
+
       <!-- A PRODUCT -->
       <article class="product">
         <div class="imageHolder">
           <img src="./img/cat0.jpg" alt="angry cat" />
         </div>
-
-        <h3>Product Name</h3>
+        <form action="cartFunctionality.php" method = "POST">
+        <h3><?php echo $product_array["name"]?></h3>
         <span>Price $</span>
         <a>Product info.... (Link to product page)</a>
         <!-- BUTTON -->
-        <a onclick="Method which sets product into cart" class="btn shop" href="product.html">Shop</a>
+        <div class="itemQuantity"><input type="text" value=1 name="code"/><input type="submit" value="Add to Cart"/></div>
+        </form>
       </article>
+
+
       <article class="product">
         <div class="imageHolder">
           <img src="./img/cat0.jpg" alt="angry cat" />
         </div>
-
         <h3>Product Name</h3>
         <span>Price $</span>
         <a>Product info.... (Link to product page)</a>
