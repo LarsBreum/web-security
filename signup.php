@@ -1,4 +1,5 @@
 <?php
+    //  session_start();
     include 'header.php'
 ?>
  
@@ -6,6 +7,7 @@
  <main>
       <!-- BANNER -->
       <section class="signUp">
+
         <h1>SignUp</h1>
         <div class="signUpContainer">
           <form action="register.php" method="post">

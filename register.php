@@ -1,27 +1,49 @@
 <?php
-
+session_start();
 require_once'conn.php';
+
 
 $username = $_POST['username'];
 $address = $_POST['address'];
 $password = $_POST['password'];
 
-$result = $db->query("SELECT COUNT(*) as count FROM users WHERE user_username = '$username'");
-$row = $result->fetchArray();
-$numRows = $row['count'];
-
-if($numRows > 0) {
-    $_SESSION['message'] = "Username exists";
+if(!checkPass($passWord)) {
     exit;
 }
 
-$stmt = $db->prepare("INSERT INTO users (user_username, user_address, user_password) VALUES (':username',':address',':password')");
+$result = $db->query("SELECT * FROM users WHERE user_username ='$username'");
+$row = $result->fetchArray();
+
+if($row) {
+    echo "Username exists";
+    header('location:signup.php');
+    $_SESSION['message']="Username exists! Please pick a new one";
+    exit;
+}
+
+function checkPass($pass) {
+    if(strlen($pass) < 8) {
+        $_SESSION['message']="Password not ok, pick a safer one";
+        return false;
+    }
+    return true;
+}
+
+$stmt = $db->prepare('INSERT INTO users (user_username, user_address, user_password) VALUES (:name,:address,:password)');
 $stmt->bindValue(':name', $username, SQLITE3_TEXT);
 $stmt->bindValue(':address', $address, SQLITE3_TEXT);
 $stmt->bindValue(':password', $password, SQLITE3_TEXT);
 
-$stmt->execute();
+
+try {
+    $stmt->execute();
+} catch(Exception $e) {
+    echo $e;
+    exit;
+}
 
 
+header('location:login.php');
+$_SESSION['message']="You are now signed up! Please login";
 
 ?>
