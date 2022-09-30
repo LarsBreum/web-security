@@ -26,6 +26,7 @@ function checkPass($pass) {
         $_SESSION['message']="Password not ok, pick a safer one";
         return false;
     }
+    return true;
 }
 
 $stmt = $db->prepare('INSERT INTO users (user_username, user_address, user_password) VALUES (:name,:address,:password)');
@@ -38,6 +39,7 @@ try {
     $stmt->execute();
 } catch(Exception $e) {
     echo $e;
+    exit;
 }
 
 
