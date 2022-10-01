@@ -1,6 +1,5 @@
 
 <?php
-    $title = 'Home';
     include 'header.php';
 
     //including the pages

@@ -52,7 +52,7 @@
           <a>' . $product_desc . '</a>
           <!-- BUTTON -->
           <form action="cartFunctionality.php" method = "POST">
-            <div class="itemQuantity"><input type="text" value=1 name="code"/><input type="submit" value="Add to Cart"/></div>
+            <div class="itemQuantity"><input type="text" placeholder="Input number" name="code"/><input type="submit" value="Add to Cart" class="btn submit"/></div>
           </form>
           </article>';
         //$out = "string" . $product;

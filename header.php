@@ -16,6 +16,7 @@
     $pages[2] = $_SESSION['username'];
     $pages[1] = "logout";
     }
+    
 ?>
 
 <!DOCTYPE html>
