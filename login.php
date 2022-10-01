@@ -1,7 +1,3 @@
-<?php
-        include 'header.php'
-?>
-
 <main>
       <!-- BANNER -->
       <section class="signUp">

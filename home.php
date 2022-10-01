@@ -1,5 +1,4 @@
 <?php
-  session_start();
 
   require_once'conn.php';
   
@@ -25,22 +24,6 @@
   <section class="products">
     <h2>Products</h2>
     <div class="productsContainer">
-
-
-
-      <!-- A PRODUCT -->
-      <article class="product">
-        <div class="imageHolder">
-          <img src="./img/cat0.jpg" alt="angry cat" />
-        </div>
-        
-        <h3><?php //echo $product_array["name"]?></h3>
-        <span>Price $</span>
-        <a>Product info.... (Link to product page)</a>
-         <form action="cartFunctionality.php" method = "POST">
-        <div class="itemQuantity"><input type="text" value=1 name="code"/><input type="submit" value="Add to Cart"/></div>
-        </form>
-      </article> 
 
     <?php
     //försökar att loopa genom alla products i databasen och skriva ut dem

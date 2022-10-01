@@ -7,7 +7,8 @@ $username = $_POST['username'];
 $address = $_POST['address'];
 $password = $_POST['password'];
 
-if(!checkPass($passWord)) {
+if(!checkPass($password)) {
+    header('location:signup.php');
     exit;
 }
 

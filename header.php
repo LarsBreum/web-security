@@ -9,6 +9,13 @@
     var_dump($result->fetchArray()); */
 
   session_start();
+
+  $pages = array("Home", "Signup", "Login", "Cart");
+
+   if ($_SESSION['user_logged_in']){
+    $pages[2] = $_SESSION['username'];
+    $pages[1] = "logout";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +27,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title><?php echo $title; ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet"
@@ -31,32 +38,33 @@
         <div class="main-container">
 <header class="flexRow">
       <div class="headerContainer flexRow">
-        <div class="navLeft"><a href="index.php">LOGO</a></div>
+        <div class="navLeft"><a href="?page=home.php">LOGO</a></div>
         <nav class="navCenter">
           <ul>
             <li><a href="./receipt.php">Link-receipt</a></li>
           </ul>
-
-          <ul>
-            <li><a href="#">Link</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">Link</a></li>
-          </ul>
         </nav>
         <div class="flexRow navRight">
-          <a href="signUp.php">Sign up</a>
           <?php 
-            if ($_SESSION['user_logged_in']){
-              echo '<a href="#">' . $_SESSION['username'] . '</a>
-                    <p>|</p>
-                    <a href="logout.php">Log out</a>';
-            }
-            else {
-              echo '<a href="login.php">Log in</a>';
-            }
+            // if ($_SESSION['user_logged_in']){
+            //   echo '<a href="#">' . $_SESSION['username'] . '</a>
+            //         <p>|</p>
+            //         <a href="logout.php">Log out</a>';
+            // }
+            // else {
+            //   echo '<a href="login.php">Log in</a>';
+            // }
           ?>
-          <a href="cart.php">Cart</a>
-        </div>
+          <ul>
+          <?php
+            foreach ($pages as $page) {
+              if(isset($_GET['page']) && $_GET['page'] == $page) {
+                echo '<li><a href="?page=' . $page . '.php "class="active">' . $item . '</a></li>';
+              } else {
+                echo '<a href="?page=' . $page . '.php  "> ' . $page . '</a>';
+              }
+          }
+
+        ?>
       </div>
     </header>
