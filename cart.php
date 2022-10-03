@@ -1,7 +1,3 @@
-<?php 
-    include 'header.php'
-?>
-
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart</div>
 
@@ -49,7 +45,3 @@ if(isset($_SESSION["cart"])){
 }
 ?>
 </div>
-
-<?php
-	include 'footer.php'
-?>
