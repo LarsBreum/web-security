@@ -1,4 +1,6 @@
 <?php
+
+  ini_set("allow_url", true);
     
    /*  $db = new SQLite3('db/secureDB.sqlite');
     $db->exec("DELETE FROM users");
@@ -12,11 +14,16 @@
 
   $pages = array("Home", "Signup", "Login", "Cart");
 
-   if ($_SESSION['user_logged_in']){
+   if ($_SESSION['user_logged_in']){ //replacing Signup and login with the username and logout
     $pages[2] = $_SESSION['username'];
     $pages[1] = "logout";
+
+    if($_SESSION['username'] == "admin") {
+      array_push($pages, "Products", "users"); //giving adming a bit more power
     }
-    
+
+  }
+
 ?>
 
 <!DOCTYPE html>

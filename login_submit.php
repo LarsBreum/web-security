@@ -11,7 +11,8 @@
         $row = $result->fetchArray();
 		if (!$row){
 			$_SESSION['message']="Login Failed. User not Found!";
-			header('location:login.php');
+			$_POST['page'] = "login.php";
+			echo $_GET['page'];
 		}
 		else{ 
 			if (isset($_POST['remember'])){
@@ -27,7 +28,7 @@
 			header('location:index.php');
 		}
 	}
-	else{
+	else {
 		header('location:login.php');
 		$_SESSION['message']="Please Login!";
 	}
