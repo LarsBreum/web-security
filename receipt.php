@@ -1,5 +1,4 @@
 <?php
-include 'header.php';
 
 $json = '[{"productName":"unknown1","productId":" 776","quantity": " 3","price":100},
 {"productName":"unknown2","productId":20,"quantity": 2,"price":140}, 
@@ -85,6 +84,4 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true)
 
         </article>
     </section>
-</main><?php
-        include "footer.php";
-        ?>
+</main>

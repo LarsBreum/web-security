@@ -1,4 +1,7 @@
 <?php
+
+  ini_set("allow_url_fopen", true);
+  ini_set("allow_url_include", true);
     
    /*  $db = new SQLite3('db/secureDB.sqlite');
     $db->exec("DELETE FROM users");
@@ -10,13 +13,18 @@
 
   session_start();
 
-  $pages = array("Home", "Signup", "Login", "Cart");
+  $pages = array("Home", "Signup", "Login", "Cart", "receipt");
 
-   if ($_SESSION['user_logged_in']){
+   if ($_SESSION['user_logged_in']){ //replacing Signup and login with the username and logout
     $pages[2] = $_SESSION['username'];
     $pages[1] = "logout";
+
+    if($_SESSION['username'] == "admin") {
+      array_push($pages, "Products", "users"); //giving adming a bit more power
     }
-    
+
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -40,11 +48,6 @@
 <header class="flexRow">
       <div class="headerContainer flexRow">
         <div class="navLeft"><a href="?page=home.php">LOGO</a></div>
-        <nav class="navCenter">
-          <ul>
-            <li><a href="./receipt.php">Link-receipt</a></li>
-          </ul>
-        </nav>
         <div class="flexRow navRight">
           <?php 
             // if ($_SESSION['user_logged_in']){

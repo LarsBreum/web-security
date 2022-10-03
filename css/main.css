@@ -97,6 +97,10 @@ ul {
   padding: 0;
   margin: 0 auto;
 }
+.navRight a {
+  margin-left: 5px;
+  margin-right: 5px;
+}
 /* AMAIN */
 main {
   width: 100%;
@@ -192,6 +196,14 @@ footer {
 }
 .footerContainer {
   padding: 2rem;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+.user-list {
+  margin-top: 20px;
   text-align: center;
 }
 
