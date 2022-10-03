@@ -8,7 +8,7 @@ $address = $_POST['address'];
 $password = $_POST['password'];
 
 if(!checkPass($password)) {
-    header('location:signup.php');
+    header('location:index.php?page=signup.php');
     exit;
 }
 
@@ -17,7 +17,7 @@ $row = $result->fetchArray();
 
 if($row) {
     echo "Username exists";
-    header('location:signup.php');
+    header('location:index.php?page=signup.php');
     $_SESSION['message']="Username exists! Please pick a new one";
     exit;
 }
@@ -44,7 +44,7 @@ try {
 }
 
 
-header('location:login.php');
+header('location:index.php?page=login.php');
 $_SESSION['message']="You are now signed up! Please login";
 
 ?>

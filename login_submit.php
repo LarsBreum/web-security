@@ -6,13 +6,12 @@
  
 		$username=$_POST['username'];
 		$password=$_POST['password'];
-
+ 
 		$result = $db->query("SELECT * FROM users WHERE user_username='$username' AND user_password='$password'");
         $row = $result->fetchArray();
 		if (!$row){
 			$_SESSION['message']="Login Failed. User not Found!";
-			$_POST['page'] = "login.php";
-			echo $_GET['page'];
+            header('location:index.php?page=Login.php');
 		}
 		else{ 
 			if (isset($_POST['remember'])){
@@ -28,8 +27,8 @@
 			header('location:index.php');
 		}
 	}
-	else {
-		header('location:login.php');
+	else{
+		header('location:index.php?page=Login.php');
 		$_SESSION['message']="Please Login!";
 	}
 ?>
