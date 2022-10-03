@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+include('conn.php');
+
+$total = $_GET["total"];    
+$userinfo = $db->query("SELECT * FROM users WHERE user_username= '" . $_SESSION["username"] . "'");
+$userinfo = $userinfo->fetchArray();
+
 $json = '[{"productName":"unknown1","productId":" 776","quantity": " 3","price":100},
 {"productName":"unknown2","productId":20,"quantity": 2,"price":140}, 
 {"productName":"unknown3","productId":330,"quantity": 1,"price":1000},
@@ -8,7 +15,8 @@ $json = '[{"productName":"unknown1","productId":" 776","quantity": " 3","price":
 // DECODE 
 
 $items = (json_decode($json, true));
-$jsonUser = json_decode('{"name":"usrName1","address":" address"}', true)
+$jsonUser = json_decode('{"name":"usrName1","address":" address"}', true);
+
 
 ?>
 <!-- MAIN -->
@@ -34,7 +42,10 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true)
                 </strong>
                 <strong class="infoUser">
                     <?php
-                    echo $jsonUser['name']
+                    echo $_SESSION["username"];
+                    echo "    ";
+                    echo $userinfo["user_address"];
+
 
                     ?>
                 </strong>
@@ -48,27 +59,28 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true)
                 <thead>
                     <tr>
                         <th>product</th>
-                        <th>Id</th>
+                        <th>Product Id</th>
                         <th>Quantity</th>
                         <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($items as $item) {
+                    foreach ($_SESSION["cart"] as $item) {
 
                     ?>
                         <tr>
                             <td><?php
-                                echo $item['productName'] ?></td>
+                                echo $item['name'] ?></td>
 
                             <td><?php
-                                echo $item['productId'] ?></td>
+                                echo $item['code'] ?></td>
                             <td><?php
                                 echo $item['quantity'] ?></td>
                             <td><?php
-                                echo $item['price'] ?></td>
-
+                                echo "$ ".number_format($item['price']) ?></td>
+                            <td><?php
+                                echo "$ ".number_format($item['price'] * $item['quantity']) ?></td>
                         </tr>
 
                     <?php
@@ -79,7 +91,7 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true)
     
             <div class="totalPrice spaceBetween ">
                 <strong>Total Price</strong>
-                <strong>12345</strong>
+                <strong><?php echo $total ?></strong>
             </div>
 
         </article>
