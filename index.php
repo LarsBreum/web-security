@@ -4,7 +4,7 @@
 
     //including the pages
     $page = isset($_GET['page']) ? $_GET['page'] : "home.php";
-    echo $page;
+
     include($page);
     //include 'home.php';
     include "footer.php";
