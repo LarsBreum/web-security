@@ -23,6 +23,7 @@
   <!-- PRODUCTS -->
   <section class="products">
     <h2>Products</h2>
+    <h1></h1>
     <div class="productsContainer">
 
     <?php
@@ -40,6 +41,7 @@
         $product_name = $product['product_name'];
         $product_price = $product['product_price'];
         $product_desc = $product['product_desc'];
+        $product_id = $product['product_id'];
         
         //var_dump($product_img);
 
@@ -51,8 +53,8 @@
           <span>' . $product_price . "$" . '</span>
           <a>' . $product_desc . '</a>
           <!-- BUTTON -->
-          <form action="cartFunctionality.php" method = "POST">
-            <div class="itemQuantity"><input type="text" placeholder="Input number" name="code"/><input type="submit" value="Add to Cart" class="btn submit"/></div>
+          <form action="cartFunctionality.php?code=' . $product_id . '" method = "POST">
+            <div class="itemQuantity"><input type="text" placeholder="Input number" name="quantity"/><input type="submit" value="Add to Cart" class="btn submit"/></div>
           </form>
           </article>';
         //$out = "string" . $product;

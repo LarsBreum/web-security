@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	?>
+
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart</div>
 
@@ -19,19 +23,18 @@ if(isset($_SESSION["cart"])){
 </tr>	
 <?php		
     foreach ($_SESSION["cart"] as $item){
-        $item_price = rand(10, 100);
+	
 		?>
-				<tr>
-                    <!-- image -->
-				<td><?php echo $item["code"]; ?></td>
-				<td style="text-align:right;"><?php echo $item["code"]; ?></td>
-				<td  style="text-align:right;"><?php echo "$ ".$item["code"]; ?></td>
-				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-				<td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+				<tr>  
+				<td><?php echo $item['name']; ?></td>
+				<!-- Image -->s
+				<td style="text-align:right;"><?php echo $item['quantity']; ?></td>
+				<td  style="text-align:right;"><?php echo "$ ".$item['price']; ?></td>
+				<td  style="text-align:right;"><?php echo "$ ". $item['price'] * $item['quantity']; ?></td>
 				</tr>
 				<?php
 				//$total_quantity += $item["quantity"];
-				//$total_price += ($item["price"]*$item["quantity"]);
+				//$total_price += ($item["price"]*$item["quantity"])
 		}
 		?>
 <!-- total price and quantity -->
