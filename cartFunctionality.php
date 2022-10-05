@@ -3,7 +3,15 @@
 			include('conn.php');
 			
 			if(!empty($_POST["quantity"])) {
-				$productByCode = $db->query("SELECT * FROM products WHERE product_id='" . $_GET["code"] . "'");
+				$stmt = $db->prepare("SELECT * FROM products WHERE product_id=:code");
+				$stmt = bindValue(':name', $_GET["code"], SQLITE3_TEXT);
+				
+				try {
+					$productByCode = $stmt->execute();
+				} catch(Exception $e) {
+					echo $e;
+					exit;
+				}
 				$productByCode = $productByCode->fetchArray();
 				$itemArray = array($productByCode[0]=>array('name'=>$productByCode[1], 'code'=>$productByCode[0], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[3], 'image'=>$productByCode[4]));
 			

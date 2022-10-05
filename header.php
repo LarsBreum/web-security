@@ -13,7 +13,7 @@
 
   session_start();
 
-  $pages = array("Home", "Signup", "Login", "Cart", "receipt");
+  $pages = array("Home", "Signup", "Login", "Cart", "Receipt");
 
    if ($_SESSION['user_logged_in']){ //replacing Signup and login with the username and logout
     $pages[2] = $_SESSION['username'];
@@ -61,14 +61,29 @@
           ?>
           <ul>
           <?php
-            foreach ($pages as $page) {
-              if(isset($_GET['page']) && $_GET['page'] == $page) {
-                echo '<li><a href="?page=' . $page . '.php "class="active">' . $item . '</a></li>';
+            /*foreach ($pages as $page) {
+              if($page == "Home") {
+                $output = "index";
               } else {
-                echo '<a href="?page=' . $page . '.php  "> ' . $page . '</a>';
+                $output = $page;
+              }
+              if($activePage == $page) {
+                echo '<li><a href=' . $output . '.php "class="active">' . $page . '</a></li>';
+              } else {
+                echo '<a href=' . $output . '.php  "> ' . $page . '</a>';
               }
           }
-
+          */
         ?>
+
+        <li><a href='index.php'>Home</a></li>
+        <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == true): ?>
+        <li><a href='logout.php'>Logout</a></li>
+        <?php else: ?>
+        <li><a href='signup.php'>Signup</a></li>
+        <li><a href='login.php'>Login</a></li>
+        <?php endif; ?>
+        <li><a href='cart.php'>Cart</a></li>
+        <li><a href='receipt.php'>Receipt</a></li>
       </div>
     </header>

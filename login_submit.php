@@ -7,7 +7,17 @@
 		$username=$_POST['username'];
 		$password=$_POST['password'];
  
-		$result = $db->query("SELECT * FROM users WHERE user_username='$username' AND user_password='$password'");
+        $stmt = $db-prepare('SELECT * FROM users WHERE user_username=:username AND user_password=:password');
+        $stmt->bindValue(':username', $username, SQLITE3_TEXT);
+        $stmt->bindValue(':password', $password, SQLITE3_TEXT);
+
+        try {
+            $result = $stmt->execute();
+        } catch(Exception $e) {
+            echo $e;
+            exit;
+        }
+        
         $row = $result->fetchArray();
 		if (!$row){
 			$_SESSION['message']="Login Failed. User not Found!";

@@ -1,3 +1,7 @@
+<?php 
+  $activePage = "Login";
+  include 'header.php';
+?>
 <main>
   <!-- BANNER -->
   <section class="signUp">
@@ -47,3 +51,6 @@
     </div>
   </section>
 </main>
+<?php 
+    include 'footer.php';
+?>

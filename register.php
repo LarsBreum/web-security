@@ -1,7 +1,7 @@
 <?php
+include 'header.php';
 session_start();
 require_once'conn.php';
-
 
 $username = $_POST['username'];
 $address = $_POST['address'];
@@ -12,7 +12,16 @@ if(!checkPass($password)) {
     exit;
 }
 
-$result = $db->query("SELECT * FROM users WHERE user_username ='$username'");
+$stmt = $db->prepare("SELECT * FROM users WHERE user_username =:username");
+$stmt->bindValue(':username', $username, SQLITE3_TEXT);
+
+try {
+    $result = $stmt->execute();
+} catch (Exception $e) {
+    echo $e;
+    exit;
+}
+
 $row = $result->fetchArray();
 
 if($row) {
@@ -46,5 +55,5 @@ try {
 
 header('location:login.php');
 $_SESSION['message']="You are now signed up! Please login";
-
+include 'footer.php';
 ?>

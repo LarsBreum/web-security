@@ -4,6 +4,8 @@
   
   $products = $db->query("SELECT * FROM products");
 
+  $activePage = "Home"
+
 ?>
 
 <!-- MAIN -->

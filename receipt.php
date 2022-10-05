@@ -2,11 +2,19 @@
 
 session_start();
 include('conn.php');
+$activePage = "Receipt";
+include 'header.php';
 
 $total = $_GET["total"];    
-$userinfo = $db->query("SELECT * FROM users WHERE user_username= '" . $_SESSION["username"] . "'");
+$stmt = $db->prepare('SELECT * FROM users WHERE user_username=:username');
+$stmt = bindValue(':username', $_SESSION["username"], SQLITE3_TEXT);
+try {
+    $userinfo = $stmt->execute();
+} catch(Exception $e) {
+    echo $e;
+    exit;
+}
 $userinfo = $userinfo->fetchArray();
-
 $json = '[{"productName":"unknown1","productId":" 776","quantity": " 3","price":100},
 {"productName":"unknown2","productId":20,"quantity": 2,"price":140}, 
 {"productName":"unknown3","productId":330,"quantity": 1,"price":1000},
@@ -97,3 +105,7 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true);
         </article>
     </section>
 </main>
+
+<?php 
+    include 'footer.php';
+?>
