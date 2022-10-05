@@ -6,6 +6,7 @@ require_once'conn.php';
 $username = $_POST['username'];
 $address = $_POST['address'];
 $password = $_POST['password'];
+$hash = password_hash($password, PASSWORD_DEFAULT);
 
 if(!checkPass($password)) {
     header('location:signup.php');
@@ -42,7 +43,7 @@ function checkPass($pass) {
 $stmt = $db->prepare('INSERT INTO users (user_username, user_address, user_password) VALUES (:name,:address,:password)');
 $stmt->bindValue(':name', $username, SQLITE3_TEXT);
 $stmt->bindValue(':address', $address, SQLITE3_TEXT);
-$stmt->bindValue(':password', $password, SQLITE3_TEXT);
+$stmt->bindValue(':password', $hash, SQLITE3_TEXT);
 
 
 try {
