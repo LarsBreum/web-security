@@ -1,7 +1,8 @@
 <?php
-include 'header.php';
-?>
-<php echo <form action="/action_page.php">
+    session_start();
+    include('header.php');
+    ?>
+    <form action="receipt.php" method = "POST">
 
     <article class="paymentContainer ">
 
@@ -27,7 +28,6 @@ include 'header.php';
     <input type="submit" value="Checkout" class="btn">
     </form>
 
-</php>
-<?php
-include "footer.php";
-?>
+    <?php
+    include('footer.php')
+    ?>

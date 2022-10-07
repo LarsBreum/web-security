@@ -1,13 +1,12 @@
 <?php
 	session_start();
-	$activePage = "Cart";
-	include 'header.php';
-?>
+	include('header.php')
+	?>
 
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart</div>
 
-<a id="btnEmpty" href="index.php">Empty Cart</a>
+<a id="btnEmpty" href="cartFunctionality.php?action=empty">Empty Cart</a>
 <?php
 if(isset($_SESSION["cart"])){
     $total_quantity = 0;
@@ -24,6 +23,7 @@ if(isset($_SESSION["cart"])){
 <th style="text-align:center;" width="5%">Remove</th>
 </tr>	
 <?php	
+	$_SESSION["totalPrice"] = 0;
     foreach ($_SESSION["cart"] as $item){
 		?>
 				<tr>  
@@ -32,10 +32,12 @@ if(isset($_SESSION["cart"])){
 				<td style="text-align:right;"><?php echo $item['quantity']; ?></td>
 				<td  style="text-align:right;"><?php echo "$ ".number_format($item['price']); ?></td>
 				<td  style="text-align:right;"><?php echo "$ ".number_format($item['price'] * $item['quantity']); ?></td>
+				<td style="text-align:center;"><a href="cartFunctionality.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
 				</tr>
 				<?php
 				$total_quantity += $item["quantity"];
 				$total_price += ($item["price"]*$item["quantity"]);
+				$_SESSION["totalPrice"] = $total_price;
 		}
 		?>
 	<tr>
@@ -48,7 +50,7 @@ if(isset($_SESSION["cart"])){
 </table>
 <?php 
 	if (isset($_COOKIE["user"]) || isset($_SESSION["username"])) { ?>
-		<form method= "POST" action="index.php?page=receipt.php&total=<?php echo $total_price ?>">
+		<form method= "POST" action="payment.php">
 			<input type= "submit" value="Pay!" class="btn submit"/>
 		</form>
 		<?php
@@ -68,7 +70,6 @@ if(isset($_SESSION["cart"])){
 
 ?>
 </div>
-
-<?php 
-	include 'footer.php';
+<?php
+include('footer.php')
 ?>
