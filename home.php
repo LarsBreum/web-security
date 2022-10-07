@@ -14,9 +14,35 @@
   <section class="banner">
     <div class="bannerTitle">
       <h1>WEB SHOP</h1>
-      <p>
-        possimus? Porro vero eos quam dicta fugit repellendus dolorum quod a
-      </p>
+      <p> <?php
+
+$url = 'https://fancyssl.hboeck.de/';
+
+$protocols = [
+    'TLS1.0' => ['protocol' => CURL_SSLVERSION_TLSv1_0, 'sec' => false],
+    'TLS1.1' => ['protocol' => CURL_SSLVERSION_TLSv1_1, 'sec' => false],
+    'TLS1.2' => ['protocol' => CURL_SSLVERSION_TLSv1_2, 'sec' => true],
+    'TLS1.3' => ['protocol' => CURL_SSLVERSION_TLSv1_3, 'sec' => true],
+];
+
+foreach ($protocols as $name => $value) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_SSLVERSION, $value['protocol']);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $response = curl_exec($ch) !== false;
+
+    if ($value['sec'] && !$response) {
+        echo "Secure $name not supported =( \n";
+    } elseif ($value['sec'] && $response) {
+        echo "Ok! Secure $name supported \n";
+    } elseif (!$value['sec'] && $response) {
+        echo "Insecure $name supported =( \n";
+    } elseif (!$value['sec'] && !$response) {
+        echo "Ok! Insecure $name not supported\n";
+    }
+} ?> </p>
       <!-- BUTTON -->
       <a class="btn" href="product.html">Product</a>
     </div>
@@ -65,7 +91,7 @@
        }
     ?>
  
-       
+
     </div>
   </section>
 </main>

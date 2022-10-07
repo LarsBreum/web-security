@@ -15,15 +15,10 @@
 
   $pages = array("Home", "Signup", "Login", "Cart", "Receipt");
 
-   if ($_SESSION['user_logged_in']){ //replacing Signup and login with the username and logout
-    $pages[2] = $_SESSION['username'];
-    $pages[1] = "logout";
-
-    if($_SESSION['username'] == "admin") {
-      array_push($pages, "Products", "users"); //giving adming a bit more power
-    }
-
+  if(isset($_SESSION['username']) && $_SESSION['username'] == "admin") {
+    array_push($pages, "Products", "users"); //giving adming a bit more power
   }
+
 
 ?>
 
@@ -41,7 +36,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Roboto">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <div class="main-container">

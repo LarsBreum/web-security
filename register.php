@@ -9,6 +9,7 @@ $password = $_POST['password'];
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
 if(!checkPass($password)) {
+    $_SESSION['pass_message'] = 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
     header('location:signup.php');
     exit;
 }
@@ -28,16 +29,23 @@ $row = $result->fetchArray();
 if($row) {
     echo "Username exists";
     header('location:signup.php');
-    $_SESSION['message']="Username exists! Please pick a new one";
+    $_SESSION['user_message']="Username exists! Please pick a new one";
     exit;
 }
 
-function checkPass($pass) {
-    if(strlen($pass) < 8) {
-        $_SESSION['message']="Password not ok, pick a safer one";
+function checkPass($password) {
+    // Validate password strength
+    $uppercase = preg_match('@[A-Z]@', $password);
+    $lowercase = preg_match('@[a-z]@', $password);
+    $number    = preg_match('@[0-9]@', $password);
+    $specialChars = preg_match('@[^\w]@', $password);
+    echo 'upper: ' . $uppercase . ' lower: ' . $lowercase . ' number: ' . $number . ' special: ' . $specialChars . ' len: ' . strlen($password) < 8;
+    if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
         return false;
+    }else{
+        return true;
     }
-    return true;
+
 }
 
 $stmt = $db->prepare('INSERT INTO users (user_username, user_address, user_password) VALUES (:name,:address,:password)');

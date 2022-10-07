@@ -19,10 +19,10 @@
             />
             <span>
             <?php
-                if (isset($_SESSION['message'])){
-                  echo $_SESSION['message'];
+                if (isset($_SESSION['user_message'])){
+                  echo $_SESSION['user_message'];
                 }
-                unset($_SESSION['message']);
+                unset($_SESSION['user_message']);
                 ?>
           </span>
             <input
@@ -38,8 +38,14 @@
               id="password"
               placeholder="******"
             />
-            
-
+            <span>
+            <?php
+                if (isset($_SESSION['pass_message'])){
+                  echo $_SESSION['pass_message'];
+                }
+                unset($_SESSION['pass_message']);
+                ?>
+            </span>
             <button type="submit" class="signup">Signup</button>
           </form>
         </div>
