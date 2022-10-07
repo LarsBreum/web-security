@@ -39,7 +39,7 @@
 					$_SESSION["cart"] = $itemArray;
 					}
 				}
-				//header('location:index.php');
+				header('location:index.php');
 				break;
 
 			case "remove":
@@ -51,7 +51,7 @@
 							unset($_SESSION["cart"]);
 					}
 				}
-				header('location:cart.php');
+				header('location:index.php?page=cart.php');
 				break;
 			case "empty":
 				unset($_SESSION["cart"]);
