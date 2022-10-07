@@ -7,17 +7,6 @@ $total = $_GET["total"];
 $userinfo = $db->query("SELECT * FROM users WHERE user_username= '" . $_SESSION["username"] . "'");
 $userinfo = $userinfo->fetchArray();
 
-$json = '[{"productName":"unknown1","productId":" 776","quantity": " 3","price":100},
-{"productName":"unknown2","productId":20,"quantity": 2,"price":140}, 
-{"productName":"unknown3","productId":330,"quantity": 1,"price":1000},
-{"productName":"unknown4","productId":230,"quantity": 5,"price":1100}]';
-
-// DECODE 
-
-$items = (json_decode($json, true));
-$jsonUser = json_decode('{"name":"usrName1","address":" address"}', true);
-
-
 ?>
 <!-- MAIN -->
 <main>
@@ -49,9 +38,6 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true);
 
                     ?>
                 </strong>
-
-
-   
 
             </div>
             <!-- Table -->
@@ -91,9 +77,11 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true);
     
             <div class="totalPrice spaceBetween ">
                 <strong>Total Price</strong>
-                <strong><?php echo $total ?></strong>
+                <strong><?php echo $_SESSION["totalPrice"] ?></strong>
             </div>
-
         </article>
     </section>
+<?php
+    unset($_SESSION["cart"])
+?>
 </main>
