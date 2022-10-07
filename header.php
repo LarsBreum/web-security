@@ -73,7 +73,8 @@
 
         <li><a href='index.php'>Home</a></li>
         <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == true): ?>
-        <li><a href='logout.php'>Logout</a></li>
+        <li><p><?php echo $_SESSION['username']?></p>
+        <a href='logout.php'>Logout</a></li>
         <?php else: ?>
         <li><a href='signup.php'>Signup</a></li>
         <li><a href='login.php'>Login</a></li>

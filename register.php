@@ -3,8 +3,8 @@ include 'header.php';
 session_start();
 require_once'conn.php';
 
-$username = $_POST['username'];
-$address = $_POST['address'];
+$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+$address = filter_var($_POST['address'], FILTER_SANITIZE_STRING);
 $password = $_POST['password'];
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
