@@ -2,12 +2,11 @@
 
 session_start();
 include('conn.php');
-$activePage = "Receipt";
 include 'header.php';
 
-$total = $_GET["total"];    
+$total = $_GET["total"];   
 $stmt = $db->prepare('SELECT * FROM users WHERE user_username=:username');
-$stmt = bindValue(':username', $_SESSION["username"], SQLITE3_TEXT);
+$stmt->bindValue(':username', $_SESSION["username"], SQLITE3_TEXT);
 try {
     $userinfo = $stmt->execute();
 } catch(Exception $e) {
@@ -15,16 +14,6 @@ try {
     exit;
 }
 $userinfo = $userinfo->fetchArray();
-$json = '[{"productName":"unknown1","productId":" 776","quantity": " 3","price":100},
-{"productName":"unknown2","productId":20,"quantity": 2,"price":140}, 
-{"productName":"unknown3","productId":330,"quantity": 1,"price":1000},
-{"productName":"unknown4","productId":230,"quantity": 5,"price":1100}]';
-
-// DECODE 
-
-$items = (json_decode($json, true));
-$jsonUser = json_decode('{"name":"usrName1","address":" address"}', true);
-
 
 ?>
 <!-- MAIN -->
@@ -58,18 +47,15 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true);
                     ?>
                 </strong>
 
-
-   
-
             </div>
             <!-- Table -->
             <table>
                 <thead>
                     <tr>
                         <th>product</th>
-                        <th>Product Id</th>
                         <th>Quantity</th>
                         <th>Price</th>
+                        <th>Sum</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -80,9 +66,6 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true);
                         <tr>
                             <td><?php
                                 echo $item['name'] ?></td>
-
-                            <td><?php
-                                echo $item['code'] ?></td>
                             <td><?php
                                 echo $item['quantity'] ?></td>
                             <td><?php
@@ -99,9 +82,8 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true);
     
             <div class="totalPrice spaceBetween ">
                 <strong>Total Price</strong>
-                <strong><?php echo $total ?></strong>
+                <strong><?php echo $_SESSION["totalPrice"] ?></strong>
             </div>
-
         </article>
     </section>
 </main>
@@ -109,3 +91,7 @@ $jsonUser = json_decode('{"name":"usrName1","address":" address"}', true);
 <?php 
     include 'footer.php';
 ?>
+<?php
+    unset($_SESSION["cart"])
+?>
+</main>

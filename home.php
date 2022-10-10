@@ -81,7 +81,7 @@ foreach ($protocols as $name => $value) {
           <span>' . $product_price . "$" . '</span>
           <a>' . $product_desc . '</a>
           <!-- BUTTON -->
-          <form action="cartFunctionality.php?code=' . $product_id . '" method = "POST">
+          <form action="cartFunctionality.php?action=add&code=' . $product_id . '" method = "POST">
             <div class="itemQuantity"><input type="text" placeholder="Input number" name="quantity"/><input type="submit" value="Add to Cart" class="btn submit"/></div>
           </form>
           </article>';
