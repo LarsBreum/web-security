@@ -52,10 +52,6 @@ if(isset($_SESSION["cart"])){
 	} else {
 		echo "<h3>You must be logged in to pay!</h3>";
 	} ?>
-
-
-
-
   <?php
 } else {
 ?>
