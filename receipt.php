@@ -46,9 +46,9 @@ $userinfo = $userinfo->fetchArray();
                 <thead>
                     <tr>
                         <th>product</th>
-                        <th>Product Id</th>
                         <th>Quantity</th>
                         <th>Price</th>
+                        <th>Sum</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,9 +59,6 @@ $userinfo = $userinfo->fetchArray();
                         <tr>
                             <td><?php
                                 echo $item['name'] ?></td>
-
-                            <td><?php
-                                echo $item['code'] ?></td>
                             <td><?php
                                 echo $item['quantity'] ?></td>
                             <td><?php
