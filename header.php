@@ -34,6 +34,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title><?php echo $title; ?></title>
         <meta name="description" content="">
+        <meta http-equiv="Content-Security-Policy" content="Content-Security-Policy: default-src 'self' example.com *.example.com;" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Roboto">
