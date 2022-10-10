@@ -1,7 +1,7 @@
 <?php
 
-  ini_set("allow_url_fopen", true);
-  ini_set("allow_url_include", true);
+  //ini_set("allow_url_fopen", true);
+  //ini_set("allow_url_include", true);
     
    /*  $db = new SQLite3('db/secureDB.sqlite');
     $db->exec("DELETE FROM users");

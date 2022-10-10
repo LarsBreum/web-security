@@ -1,5 +1,6 @@
 <?php
 
+include('header.php');
 session_start();
 include('conn.php');
 include 'header.php';
@@ -86,12 +87,8 @@ $userinfo = $userinfo->fetchArray();
             </div>
         </article>
     </section>
-</main>
-
-<?php 
-    include 'footer.php';
-?>
 <?php
-    unset($_SESSION["cart"])
+    unset($_SESSION["cart"]);
+    include('footer.php');
 ?>
 </main>

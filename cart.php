@@ -1,12 +1,7 @@
 <?php
 	session_start();
-	include 'header.php';
 ?>
 
-<div id="shopping-cart">
-<div class="txt-heading">Shopping Cart</div>
-
-<a id="btnEmpty" href="cartFunctionality.php?action=empty">Empty Cart</a>
 <?php
 if(isset($_SESSION["cart"])){
     $total_quantity = 0;
@@ -32,7 +27,7 @@ if(isset($_SESSION["cart"])){
 				<td style="text-align:right;"><?php echo $item['quantity']; ?></td>
 				<td  style="text-align:right;"><?php echo "$ ".number_format($item['price']); ?></td>
 				<td  style="text-align:right;"><?php echo "$ ".number_format($item['price'] * $item['quantity']); ?></td>
-				<td style="text-align:center;"><a href="cartFunctionality.php&action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+				<td style="text-align:center;"><a href="cartFunctionality.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
 				</tr>
 				<?php
 				$total_quantity += $item["quantity"];
@@ -70,7 +65,6 @@ if(isset($_SESSION["cart"])){
 
 ?>
 </div>
-
-<?php 
-	include 'footer.php';
+<?php
+include('footer.php')
 ?>

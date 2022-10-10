@@ -27,6 +27,13 @@
 
     <input type="submit" value="Checkout" class="btn">
     </form>
+<<<<<<< HEAD
 <?php
     include("footer.php");
 ?>
+=======
+
+    <?php
+    include('footer.php')
+    ?>
+>>>>>>> c403e1811c8a58cde61215411fde0dd5548974fc
