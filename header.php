@@ -13,6 +13,7 @@
 
   session_start();
 
+  $title = "Webshop";
   $pages = array("Home", "Signup", "Login", "Cart", "Receipt");
 
   if(isset($_SESSION['username']) && $_SESSION['username'] == "admin") {
@@ -42,7 +43,6 @@
         <div class="main-container">
 <header class="flexRow">
       <div class="headerContainer flexRow">
-        <div class="navLeft"><a href="?page=home.php">LOGO</a></div>
         <div class="flexRow navRight">
           <?php 
             // if ($_SESSION['user_logged_in']){
